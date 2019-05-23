@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Curso JS</title>
+    </head>
+    <body>
+        
+        <script>
+            function retornaSexo(sexo){
+                if (sexo == 'M') {
+                    return 'Homem';
+                } else if (sexo == 'F') {
+                    return 'Mulher';
+                }  else return 'Entrada invalida';
+            }
+
+            function retornaHumor(humor) {
+                switch (humor) {
+                    case 1:
+                        return 'Ruim';
+                        break;
+
+                    case 2:
+                        return 'Medio';
+                        break;
+
+                    case 3:
+                        return 'Bom';
+                        break;
+                    
+                    default:
+                        return 'Nao informado';
+                        break;
+                }
+            }
+
+            var resultado = retornaSexo('F');
+            console.log(resultado);
+
+            var humor = retornaHumor(3)
+            console.log(humor);
+            
+        </script>
+    </body>
+</html>
