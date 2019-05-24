@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <title>Curso JS</title>
+    </head>
+    <body>
+        <script>
+            // Dado o seguinte vetor de objetos:
+            var usuarios = [
+                {
+                    nome: "Diego",
+                    habilidades: ["Javascript", "ReactJS", "Redux"]
+                },
+                {
+                    nome: "Gabriel",
+                    habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+                }
+            ];
+            /* Escreva uma função que produza o seguinte resultado:
+             * Diego possui as habilidades: Javascript, ReactJS, Redux
+             * Gabriel possui as habilidades: VueJS, Ruby on Rails, Elixir
+             */
+            usuarios.forEach(element => {
+                let output = element.nome + ' possui as habilidades: ';
+                element.habilidades.forEach(h => {
+                    output += h + ', ';
+                });
+                var final = output.length-2;
+                output = output.substr(0, final) + '!';
+                console.log(output);
+            });            
+        </script>
+    </body>
+</html>
