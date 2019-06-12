@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <title>Curso JS</title>
+    </head>
+    <body>
+      <div id="app">
+        <button onclick="showAlert()">Aperta-me!</button>
+        <button onmouseover="showAlertOver()">Passe aqui!</button>
+        <input type="text" name="campo_texto" onkeydown="showContent(this.value)">
+      </div>
+        <script>
+
+          function showAlert() {
+            alert('Botão acionado!');
+          }
+
+          function showAlertOver() {
+            alert('Passando pelo botão!');
+          }
+
+          function showContent(valor) {
+            console.log(valor);
+          }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <title>Curso JS</title>
+    </head>
+    <body>
+      <div id="app">
+        <input type="text" name="nome" id="nome" class="nome"/>
+        <button class="botao">Adicionar</button>
+      </div>
+        <script>
+          var inputElementById            = document.getElementById('nome'); // Busca elementos pelo ID
+          var inputElementByTag           = document.getElementsByTagName('input'); // Busca elementos pelo tipo da tag HTML
+          var inputElementByClass         = document.getElementsByClassName('nome'); // Busca elementos pelo nome da classe
+          var inputElementByQuerySelector = document.querySelector('body div#app input'); // Busca por elementos dentro da hierarquia do documento
+          var inputElementByProp          = document.querySelector('input[nome=nome]'); // Colchetes referenciam uma propriedade do elemento
+
+          console.log(inputElementById);
+          console.log(inputElementByTag);
+          console.log(inputElementByClass);
+          console.log(inputElementByQuerySelector);
+
+          var btnElement = document.querySelector('button.botao');
+          var inputText  = document.getElementById('nome');
+          btnElement.onclick = function () {
+            alert(inputText.value);
+          }
+        </script>
+    </body>
+</html>
