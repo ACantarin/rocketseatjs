@@ -1,19 +1,25 @@
 var listElement  = document.querySelector('#app ul');
 var inputElement = document.querySelector('#app input');
 var btnElement   = document.querySelector('#app button');
-var todoArray = [
-  'Fazer café',
-  'Estudar JS',
-  'Acessar a comunidade Rocketseat'
-];
+var todoArray = JSON.parse(localStorage.getItem('list_todos')) || [];
 
 function renderTodos() {
   listElement.innerHTML = '';
   for(todo of todoArray) {
     var todoElement = document.createElement('li');
-    var todoText = document.createTextNode(todo);
+    var todoText    = document.createTextNode(todo);
+
+    var linkElement = document.createElement('a');
+    linkElement.setAttribute('href', '#');
+
+    var pos = todoArray.indexOf(todo);
+    linkElement.setAttribute('onclick', 'deleteTodo(' + pos + ')');
+
+    var linkText    = document.createTextNode('Excluir');
+    linkElement.appendChild(linkText);
 
     todoElement.appendChild(todoText);
+    todoElement.appendChild(linkElement);
     listElement.appendChild(todoElement);
   }
 }
@@ -25,6 +31,17 @@ function addTodo() {
   todoArray.push(todoText);
   inputElement.value = '';
   renderTodos();
+  saveToStorage();
 }
 
 btnElement.onclick = addTodo;
+
+function deleteTodo(pos) {
+  todoArray.splice(pos, 1);
+  renderTodos();
+  saveToStorage();
+}
+
+function saveToStorage() {
+  localStorage.setItem('list_todos', JSON.stringify(todoArray));
+}
